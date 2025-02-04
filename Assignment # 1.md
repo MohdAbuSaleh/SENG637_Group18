@@ -9,7 +9,6 @@
 | Jinyu Wang      |
 | Mohammad Abu Saleh      |
 
-
 **Table of Contents**
 [1 Introduction](#_Toc439194677)
 [2 High-level description of the exploratory testing plan](#_Toc439194678)
