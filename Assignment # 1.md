@@ -2,11 +2,12 @@
 
 Lab Report #1 – Introduction to Testing and Defect Tracking
 
-Group: 18
-Abubakar Khalid
-Ahmed Shehata
-Jinyu Wang
-Mohammad Abu Saleh
+| Group: 18      |
+|-----------------|
+| Abubakar Khalid      |
+| Ahmed Shehata      |
+| Jinyu Wang      |
+| Mohammad Abu Saleh      |
 
 
 Table of Contents
