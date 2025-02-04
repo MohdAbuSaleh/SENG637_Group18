@@ -12,17 +12,24 @@
 **Table of Contents**
 
 [1 Introduction](#_Toc439194677)
+
 [2 High-level description of the exploratory testing plan](#_Toc439194678)
+
   - [Test Plan](#_Toc439194684)  
   - [Test types](#_Toc439194685)  
   - [Scope of testing](#_Toc439194686)  
     - [Features to be tested](#_Toc439194687)  
     - [Features not to be tested](#_Toc439194688)  
-  - [Test Logistics](#_Toc439194689)  
+  - [Test Logistics](#_Toc439194689)
+  
 [3 Comparison of exploratory and manual functional testing](#_Toc439194679)
+
 [4 Notes and discussion of the peer reviews of defect reports](#_Toc439194680)
+
 [5 How the pair testing was managed and team work/effort was divided](#_Toc439194681)
+
 [6 Difficulties encountered, challenges overcome, and lessons learned](#_Toc439194682)
+
 [7 Comments/feedback on the lab and lab document itself](#_Toc439194683)
 
 # Introduction
