@@ -35,15 +35,21 @@
 # Introduction
 
 Before starting this lab, we had a very minimal or you can say basic understanding of software testing, but none of us had worked with exploratory or manual functional testing in a structured way. The name sort of gave it away but we knew that exploratory testing involves freely interacting with a system to find unexpected issues, while manual functional testing (MFT) follows a set of predefined test cases to verify expected behavior. However, we had never applied these concepts in a real testing environment, nor did we have any prior experience using JIRA for defect tracking
+
 This lab gave us hands-on experience with both approaches. We started with exploratory testing, where we tested the ATM system without a script, trying different inputs and scenarios to uncover potential bugs. After that, we moved on to manual functional testing, where we followed a structured test plan and logged any issues in JIRA. Finally, we conducted regression testing on the updated version of the ATM system to verify which bugs were fixed and which still existed.
+
 Through this process, we gained a much better understanding of how real-world testing works, how to properly document and track defects, and how different testing methods contribute to improving software quality.
 
 # High-level description of the exploratory testing plan
 
 For our exploratory testing, we approached the ATM simulation system with the goal of identifying unexpected behaviors and system weaknesses. Since this type of testing does not follow a strict script, we focused on realistic user interactions and edge cases that could potentially reveal defects.
+
 We began by navigating through the system to understand its basic functionality and overall flow. This included powering on the ATM, inserting a card, and attempting standard transactions. Once we had a general understanding, we tested different authentication scenarios, such as entering valid and invalid card numbers and PINs, and exceeding the maximum number of incorrect attempts to observe how the system handled card retention.
+
 Next, we explored various transaction processes, including withdrawals, deposits, transfers, and balance inquiries, ensuring they functioned as expected. We also tested edge cases by deliberately entering invalid values, exceeding system limits, and performing transactions in an unusual sequence to observe how the system responded. A key part of our testing involved assessing the system’s error handling and stability by triggering conditions such as insufficient funds, invalid account types, and interruptions during transactions.
+
 Each pair had individually explored the system to make sure thorough coverage of the system. Any unexpected or incorrect behavior was immediately documented and later reported in JIRA with detailed defect logs. By the end of this process, we had identified several critical and unexpected defects that might not have been immediately noticeable through structured testing alone.
+
 This step reinforced the importance of unscripted testing in real-world software validation and provided valuable insights into the robustness of the ATM system.
 
 ## Test Plan
@@ -57,41 +63,29 @@ For this lab, we performed three types of testing to evaluate the ATM simulation
 ## Scope of testing
 
 The scope of this test plan was to evaluate the core functionalities of the ATM system, focusing on key areas of user interaction and transaction processing. The first area of testing involved authentication and card handling, where we tested valid and invalid card entries, correct and incorrect PIN inputs, incorrect PIN retries, and card retention behavior when a user failed authentication multiple times. We also tested cash withdrawal functionalities, ensuring that the ATM correctly processed withdrawals for both sufficient and insufficient account balances while verifying proper cash dispensing behavior. Another critical area was deposit transactions, where we tested both valid and invalid deposit attempts, handling of deposit envelopes, and cases where deposits were canceled or failed due to system constraints.
+
 Additionally, we tested fund transfers to validate transactions between different account types and checked how the system handled invalid account selections. Balance inquiry tests checked that users could retrieve accurate balance information from their accounts, while also confirming that account balances updated correctly after transactions. Finally, we conducted transaction cancellation tests to verify that users could cancel transactions at different stages without causing system errors or unexpected behavior. By covering these functionalities, we made sure that our testing approach addressed both critical system operations and edge cases that could impact real-world usage.
 
 ### Features to be tested
 
 The features that were tested during our exploratory testing are listed in the table below. These features cover the core functionalities of the ATM system, ensuring that key user interactions and transaction processing mechanisms were evaluated thoroughly.
-Function
-Description
-Authentication
-Customer insert a card and enter a correct PIN to successfully log in
-Wrong PIN is not accepted
-Customer insert a card and enter an incorrect PIN and is rejected and asked to enter PIN again
-Enter wrong PIN 3 times
-Customer insert a card and enter wrong PIN 3 times and system will retain the card
-Withdraw money under current balance
-After successful logging in, customer withdraw $50 from checking account and the system should print receipt showing correct balance
-Withdraw money over current balance
-After successful logging in, customer withdraw $200 from checking account and the system should prompt not enough balance
-Withdraw money over cash in ATM
-The ATM should be started with 5 $20 bills. After successful logging in, customer withdraw $200 from checking account and the system should fail to proceed
-Deposit money to checking account
-After successful logging in, customer deposit $200 to checking account
-Deposit money to savings account
-After successful logging in, customer deposit $200 to savings account
-Transfer money from checking to savings
-After successful logging in, customer transfer $20 from checking to saving, and system should print receipt showing successful transaction and correct details
-Transfer money from savings to checking
-After successful logging in, customer transfer $20 from checking to saving, and system should print receipt showing successful transaction and correct details
-Transfer money from checking to savings but money is more than current balance in checking
-After successful logging in, customer transfer $200 from checking to saving, and system should fail to proceed
-Inquire balance of checking
-After successful logging in, customer inquire balance of checking account and system should print current balance
-Switch on ATM
-Click On button to start the ATM, after entering the number of $20 bills
-Switch off ATM
-After successfully logging in, pressing the Off button to switch off the ATM, the system should reject being switched off because the customer is using the ATM.
+
+| **Function**                                   | **Description** |
+|------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
+| **Authentication**                                   | Customer insert a card and enter a correct PIN to successfully log in |
+| **Wrong PIN is not accepted**                                   | Customer insert a card and enter an incorrect PIN and is rejected and asked to enter PIN again |
+| **Enter wrong PIN 3 times**                                   | Customer insert a card and enter wrong PIN 3 times and system will retain the card |
+| **Withdraw money under current balance**                                   | After successful logging in, customer withdraw $50 from checking account and the system should print receipt showing correct balance |
+| **Withdraw money over current balance**                                   | After successful logging in, customer withdraw $200 from checking account and the system should prompt not enough balance |
+| **Withdraw money over cash in ATM**                                   | The ATM should be started with 5 $20 bills. After successful logging in, customer withdraw $200 from checking account and the system should fail to proceed |
+| **Deposit money to checking account**                                   | After successful logging in, customer deposit $200 to checking account |
+| **Deposit money to savings account**                                   | After successful logging in, customer deposit $200 to savings account |
+| **Transfer money from checking to savings**                                   | After successful logging in, customer transfer $20 from checking to saving, and system should print receipt showing successful transaction and correct details |
+| **Transfer money from savings to checking**                                   | After successful logging in, customer transfer $20 from checking to saving, and system should print receipt showing successful transaction and correct details |
+| **Transfer money from checking to savings but money is more than current balance in checking**                                   | After successful logging in, customer transfer $200 from checking to saving, and system should fail to proceed |
+| **Inquire balance of checking**                                   | After successful logging in, customer inquire balance of checking account and system should print current balance |
+| **Switch on ATM**                                   | Click On button to start the ATM, after entering the number of $20 bills |
+| **Switch off ATM**                                   | After successfully logging in, pressing the Off button to switch off the ATM, the system should reject being switched off  |because the customer is using the ATM.
 
 ### Features not to be tested
 
