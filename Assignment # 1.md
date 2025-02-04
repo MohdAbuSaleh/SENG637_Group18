@@ -1,6 +1,6 @@
 >   **SENG 637 - Software Testing, Reliability, and Quality**
 
-Lab Report #1 – Introduction to Testing and Defect Tracking
+**Lab Report #1 – Introduction to Testing and Defect Tracking**
 
 | Group: 18      |
 |-----------------|
@@ -10,39 +10,50 @@ Lab Report #1 – Introduction to Testing and Defect Tracking
 | Mohammad Abu Saleh      |
 
 
-Table of Contents
-Introduction
-High-level description of the exploratory testing plan
-Test Plan
-Test types
-Scope of testing
-Features to be tested
-Features not to be tested
-Test Logistics
-Comparison of exploratory and manual functional testing
-Notes and discussion of the peer reviews of defect reports
-How the pair testing was managed and team work/effort was divided
-Difficulties encountered, challenges overcome, and lessons learned
-Comments/feedback on the lab and lab document itself
-Introduction
+**Table of Contents**
+[1 Introduction](#_Toc439194677)
+[2 High-level description of the exploratory testing plan](#_Toc439194678)
+  - [Test Plan](#_Toc439194684)  
+  - [Test types](#_Toc439194685)  
+  - [Scope of testing](#_Toc439194686)  
+    - [Features to be tested](#_Toc439194687)  
+    - [Features not to be tested](#_Toc439194688)  
+  - [Test Logistics](#_Toc439194689)  
+[3 Comparison of exploratory and manual functional testing](#_Toc439194679)
+[4 Notes and discussion of the peer reviews of defect reports](#_Toc439194680)
+[5 How the pair testing was managed and team work/effort was divided](#_Toc439194681)
+[6 Difficulties encountered, challenges overcome, and lessons learned](#_Toc439194682)
+[7 Comments/feedback on the lab and lab document itself](#_Toc439194683)
+
+# Introduction
+
 Before starting this lab, we had a very minimal or you can say basic understanding of software testing, but none of us had worked with exploratory or manual functional testing in a structured way. The name sort of gave it away but we knew that exploratory testing involves freely interacting with a system to find unexpected issues, while manual functional testing (MFT) follows a set of predefined test cases to verify expected behavior. However, we had never applied these concepts in a real testing environment, nor did we have any prior experience using JIRA for defect tracking
 This lab gave us hands-on experience with both approaches. We started with exploratory testing, where we tested the ATM system without a script, trying different inputs and scenarios to uncover potential bugs. After that, we moved on to manual functional testing, where we followed a structured test plan and logged any issues in JIRA. Finally, we conducted regression testing on the updated version of the ATM system to verify which bugs were fixed and which still existed.
 Through this process, we gained a much better understanding of how real-world testing works, how to properly document and track defects, and how different testing methods contribute to improving software quality.
-High-level description of the exploratory testing plan
+
+# High-level description of the exploratory testing plan
+
 For our exploratory testing, we approached the ATM simulation system with the goal of identifying unexpected behaviors and system weaknesses. Since this type of testing does not follow a strict script, we focused on realistic user interactions and edge cases that could potentially reveal defects.
 We began by navigating through the system to understand its basic functionality and overall flow. This included powering on the ATM, inserting a card, and attempting standard transactions. Once we had a general understanding, we tested different authentication scenarios, such as entering valid and invalid card numbers and PINs, and exceeding the maximum number of incorrect attempts to observe how the system handled card retention.
 Next, we explored various transaction processes, including withdrawals, deposits, transfers, and balance inquiries, ensuring they functioned as expected. We also tested edge cases by deliberately entering invalid values, exceeding system limits, and performing transactions in an unusual sequence to observe how the system responded. A key part of our testing involved assessing the system’s error handling and stability by triggering conditions such as insufficient funds, invalid account types, and interruptions during transactions.
 Each pair had individually explored the system to make sure thorough coverage of the system. Any unexpected or incorrect behavior was immediately documented and later reported in JIRA with detailed defect logs. By the end of this process, we had identified several critical and unexpected defects that might not have been immediately noticeable through structured testing alone.
 This step reinforced the importance of unscripted testing in real-world software validation and provided valuable insights into the robustness of the ATM system.
-Test Plan
+
+## Test Plan
+
 For this lab, our test plan focused on evaluating the ATM simulation system through exploratory testing, manual functional testing (MFT), and regression testing. 
 
-Test types
+## Test types
+
 For this lab, we performed three types of testing to evaluate the ATM simulation system: exploratory testing, manual functional testing (MFT), and regression testing. Exploratory testing was conducted without predefined test cases, allowing testers to freely interact with the system to uncover unexpected issues. The primary goal was to identify edge cases, usability concerns, and unanticipated behaviors. Manual functional testing (MFT), on the other hand, involved executing structured test cases based on a predefined test suite to verify that the system behaved as expected. Each test case followed a step-by-step process with specific expected outcomes and pass/fail criteria. Finally, regression testing was conducted after receiving the updated ATM System v1.1. We retested previously identified defects to determine whether they had been fixed. If a defect was resolved, we updated its status in JIRA as "Resolved." If the issue persisted, we marked it "In Progress" and added comments explaining the continued failure. Additionally, we re-executed the MFT test cases to check for any new defects introduced in version 1.1.
-Scope of testing
+
+## Scope of testing
+
 The scope of this test plan was to evaluate the core functionalities of the ATM system, focusing on key areas of user interaction and transaction processing. The first area of testing involved authentication and card handling, where we tested valid and invalid card entries, correct and incorrect PIN inputs, incorrect PIN retries, and card retention behavior when a user failed authentication multiple times. We also tested cash withdrawal functionalities, ensuring that the ATM correctly processed withdrawals for both sufficient and insufficient account balances while verifying proper cash dispensing behavior. Another critical area was deposit transactions, where we tested both valid and invalid deposit attempts, handling of deposit envelopes, and cases where deposits were canceled or failed due to system constraints.
 Additionally, we tested fund transfers to validate transactions between different account types and checked how the system handled invalid account selections. Balance inquiry tests checked that users could retrieve accurate balance information from their accounts, while also confirming that account balances updated correctly after transactions. Finally, we conducted transaction cancellation tests to verify that users could cancel transactions at different stages without causing system errors or unexpected behavior. By covering these functionalities, we made sure that our testing approach addressed both critical system operations and edge cases that could impact real-world usage.
-Features to be tested
+
+### Features to be tested
+
 The features that were tested during our exploratory testing are listed in the table below. These features cover the core functionalities of the ATM system, ensuring that key user interactions and transaction processing mechanisms were evaluated thoroughly.
 Function
 Description
@@ -75,31 +86,41 @@ Click On button to start the ATM, after entering the number of $20 bills
 Switch off ATM
 After successfully logging in, pressing the Off button to switch off the ATM, the system should reject being switched off because the customer is using the ATM.
 
+### Features not to be tested
 
-Features not to be tested
 While our test plan covered critical ATM functions, some aspects were outside our testing scope. We did not perform security testing, such as checking for vulnerabilities in the system's authentication mechanism. Our focus remained on functional testing of the software, ensuring that the core ATM operations worked correctly under expected conditions.
-Test Logistics
+
+## Test Logistics
+
 To efficiently execute our test plan, we divided our team of four into two pairs. Each pair conducted exploratory testing independently before coming together to compare findings and log defects in JIRA. During exploratory testing, one member in each pair acted as the tester, executing tests and sharing their screen, while the other member observed and recorded defects in real-time. One pair primarily focused on authentication and card handling, while the other pair concentrated on transaction-related functions, such as withdrawals, deposits, transfers, and balance inquiries. Once exploratory testing was complete, we reviewed our results as a group to validate defects before officially logging them.
-Comparison of exploratory and manual functional testing
+
+# Comparison of exploratory and manual functional testing
+
 Exploratory testing and manual functional testing (MFT) both play crucial roles in software quality assurance, but they differ significantly in their approach, structure, and effectiveness in identifying defects. Through this lab, we were able to directly compare these two testing methodologies and understand their strengths and trade-offs.
 Exploratory testing was unscripted and flexible, allowing us to interact with the system freely and test various edge cases without predefined test cases. This approach helped us uncover unexpected bugs that may not have been considered in a structured test plan. For example, we discovered issues related to incorrect balance updates after deposits and transfers, which were not explicitly listed as test cases but were found through exploratory interactions. However, one of the main drawbacks of exploratory testing was lack of consistency and repeatability—since different testers explored different aspects of the system, not every issue was guaranteed to be discovered, and some defects might have been overlooked due to the lack of structure. Additionally, exploratory testing requires domain knowledge of the system being tested. For example, knowing the functions of an ATM and its typical weaknesses helped us identify potential problem areas faster.
 In contrast, manual functional testing (MFT) was highly structured and repeatable, following a predefined set of test cases to verify specific functionalities of the ATM system. This method checked that all core features were tested systematically, and every function was evaluated against its expected behavior. One major advantage of MFT is that steps are well-documented, making it easier to reproduce issues and track them effectively. Additionally, since MFT follows a structured plan, it does not require deep domain knowledge—testers simply need to know how to operate the ATM and execute the given test cases. However, one drawback of MFT is that it may miss unexpected defects, as it only tests predefined scenarios rather than allowing for spontaneous issue discovery like exploratory testing.
 Another key difference is efficiency. Exploratory testing can quickly find critical issues since testers are free to interact with the system in a way that mimics real-world usage. However, manual functional testing is slower since it must follow a predefined sequence of test cases. Despite being more time-consuming, MFT is better suited for regression testing, as it allows testers to systematically retest known issues and verify fixes in an updated version of the software.
 A key takeaway from this lab was that both testing approaches are necessary for thorough software testing. Exploratory testing is great for discovering unexpected issues and testing the system from a real user’s perspective, while MFT looked at that the core functionality works as intended and provides structured, repeatable results. By combining both methods, we were able to maximize defect detection and confirm comprehensive test coverage for the ATM system.
-Notes and discussion of the peer reviews of defect reports
+
+# Notes and discussion of the peer reviews of defect reports
+
 As part of the lab, we conducted peer reviews of the defect reports submitted by both pairs in our group. The goal of the peer review process was to check for accuracy, consistency, and completeness in how defects were documented in JIRA. This step helped us refine our reports, correct any missing details, and gain a better understanding of how to improve our defect descriptions.
 During the review, we examined whether the summary and description of each defect were clear and easy to understand. Some initial reports lacked specificity in describing the issue, so we revised them to include detailed steps to reproduce the bug along with clear expected and actual results. A defect is only useful if it can be reproduced by others, so we focused on ensuring that all reports contained explicit, step-by-step instructions. Some reports were missing key steps required to trigger the bug, which led to confusion when retesting them during regression testing. Addressing these gaps made sure that anyone reviewing the defects could replicate them without ambiguity.
 Another key aspect of the review was maintaining consistency in severity and priority classification. Some defects were initially assigned different severity ratings by different pairs. For example, a bug causing a miscalculated balance after a deposit was originally labeled as "Medium" severity by one pair, while the other pair marked a similar issue as "High." To have uniformity, we discussed these discrepancies and aligned our severity ratings based on the actual impact of each bug on system functionality.
 In addition to severity classification, we reviewed the labeling and categorization of defects. Some reports were missing appropriate labels indicating the affected functionality, such as transactions, balance inquiry, or authentication. By adding these labels in JIRA, we made it easier to track defects by category, helping ensure that related issues were grouped together for efficient resolution.
 The review process also emphasized the importance of correctly updating defect statuses during regression testing. When we tested ATM System v1.1, we updated the reports to indicate which bugs had been resolved and which remained unresolved. Some reports lacked proper status updates, leading to confusion about whether an issue was still present. We made sure that defects marked as fixed were updated to "Resolved," while those still present were labeled "In Progress," with comments explaining their status.
 Overall, the peer review process significantly improved the quality of our defect reports, making them more structured, reproducible, and aligned with industry standards. It reinforced the importance of clear documentation in software testing, as missing or vague details could lead to confusion in later testing stages. This process provided valuable insight into how professional QA teams collaborate to refine defect reports, ensuring clarity and accuracy for efficient debugging and resolution.
-How the pair testing was managed and team work/effort was divided
+
+# How the pair testing was managed and team work/effort was divided
+
 To have a structured and efficient approach to testing, we followed the professor’s requirement of working in pairs within our group of four. Each pair conducted both exploratory testing and manual functional testing (MFT) independently before coming together to compare findings and log defects in JIRA. This made sure that all identified issues were validated and properly documented.
 For exploratory testing, each pair tested the ATM simulation system separately, with one member acting as the tester, executing different test cases and sharing their screen, while the other member observed and recorded defects. The recorder was also responsible for logging the identified bugs into JIRA in real-time to maintain accuracy. One pair focused on authentication and card handling, testing various scenarios such as valid and invalid card entries, incorrect PIN attempts, and card retention behavior. The second pair concentrated on transaction-related functions, including withdrawals, deposits, transfers, and balance inquiries. Once both pairs completed their exploratory testing, we compared our results, reviewed inconsistencies, and made sure that all defects were thoroughly discussed before finalizing the logs in JIRA.
 For manual scripted testing (MFT), each pair was responsible for executing all 40 test cases. However, to distribute the workload efficiently, the test cases were evenly split within each pair, meaning that while each pair covered all 40 cases, individual members focused on half of them. This setup made sure that every test case was executed twice independently—once by each pair—allowing for cross-verification of defects. Each pair followed the structured test suite, recorded results, and logged any discovered bugs in JIRA under the "MFT" tag. After completing the MFT phase, we compared our findings, confirming which defects were consistently reproducible across both pairs before finalizing the defect reports.
 For regression testing, each team member was responsible for retesting the defects they originally reported in version 1.0 to verify whether they had been fixed in ATM System v1.1. If a defect was resolved, its status in JIRA was updated to "Resolved," whereas defects that still persisted were marked as "In Progress" with additional comments detailing the issue. After verifying previous defects, both pairs re-executed their assigned MFT test cases from version 1.0 to check for any newly introduced defects in version 1.1.
 By structuring our testing approach in this way, we had a thorough evaluation of the ATM system while adhering to the required pair-testing methodology. With multiple testers verifying each function independently, we maximized test coverage, improved the reliability of our findings, and effectively tracked all defects using
-Difficulties encountered, challenges overcome, and lessons learned
+
+# Difficulties encountered, challenges overcome, and lessons learned
+
 Throughout this lab, we encountered several challenges that tested our problem-solving abilities and teamwork. One of the biggest difficulties was understanding the structure of the testing process itself. Initially, we were confused about the differences between exploratory testing, manual functional testing (MFT), and regression testing, as well as how to properly document and track defects in JIRA. However, through trial and error, discussions within our group, and referencing the assignment instructions, we were able to gain clarity on each phase and streamline our workflow.
 Another challenge we faced was ensuring consistency in defect reporting. Since each pair conducted their own testing, it was crucial that we logged defects clearly and systematically so that they could be properly tracked and retested during regression testing. At first, we noticed inconsistencies in how defects were described, with some reports missing key details. To overcome this, we standardized our bug reporting format in JIRA, ensuring that every defect included steps to reproduce, expected vs. actual results, severity, and affected version. This not only made our reports clearer but also prepared us for real-world defect tracking in professional environments.
 A technical challenge we encountered was identifying whether certain issues were actual bugs or expected system behavior. For example, some transactions failed without an error message, while others deducted incorrect amounts from the balance. We had to refer back to the system requirements to confirm whether the behavior was a defect or intended functionality. This reinforced the importance of understanding system specifications before testing and asking the right questions when identifying issues.
@@ -107,7 +128,8 @@ Working with JIRA was another learning curve. Many of us had never used a bug tr
 One of the most valuable lessons we learned was the importance of pair testing and teamwork. By dividing the workload and verifying each other’s findings, we were able to catch more defects, prevent oversight, and have a higher level of accuracy in our testing. We also gained real-world experience in structured testing methodologies, reinforcing the importance of both scripted and unscripted testing approaches in software quality assurance.
 Ultimately, this lab helped us develop a deeper understanding of software testing, bug tracking, and collaboration. The challenges we faced were valuable learning experiences that improved our ability to analyze, document, and validate software defects effectively.
 
-Comments/feedback on the lab and lab document itself
+# Comments/feedback on the lab and lab document itself
+
 Overall, this lab provided a great hands-on introduction to software testing and defect tracking. The structured process of exploratory testing, manual functional testing (MFT), and regression testing helped us understand different testing approaches and how to log defects systematically in JIRA. Working with JIRA was especially valuable since it's a widely used industry tool, and this lab gave us a chance to learn its workflow in a real testing scenario. However, despite the learning experience, there were several areas where the lab could have been more structured and clearer.
 One of the biggest frustrations we faced was the lack of clarity on what exactly needed to be submitted. At multiple points, we were unsure whether we had to submit just the JIRA bug reports, a Markdown file, a PDF, or all of them together. The instructions were not always structured well, and we found ourselves second-guessing what was required and in what format. This caused unnecessary confusion and made it difficult to focus on the actual testing. A clearer breakdown of submission requirements with specific instructions on what files to include would have saved us a lot of time and effort.
 Another issue was the uncertainty around how to divide the work within the group. The lab mentioned pair testing, but it wasn’t entirely clear whether each pair was supposed to complete the full set of test cases independently or if we were meant to split the workload differently. We ended up making a decision based on what seemed most logical, but some clearer guidance on how to coordinate testing within a team would have been helpful. Additionally, some expected behaviors of the ATM system were unclear, making it difficult to determine whether certain issues were actual bugs or just system limitations. Since there wasn’t much documentation explaining the expected outcomes for certain edge cases, we had to make assumptions when logging issues in JIRA. A more detailed system specification would have helped us confidently differentiate between intended functionality and actual defects.
